@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 23-11-2018 a las 14:35:48
+-- Tiempo de generación: 23-11-2018 a las 15:30:05
 -- Versión del servidor: 5.7.23
 -- Versión de PHP: 7.2.10
 
@@ -350,9 +350,17 @@ INSERT INTO `empleados` (`rut_emp`, `profesion`, `nombre`, `apellido`, `cod_empl
 
 DROP TABLE IF EXISTS `estado_vuelo`;
 CREATE TABLE IF NOT EXISTS `estado_vuelo` (
-  `estado_vuelo` varchar(50) NOT NULL,
+  `cod_vuelo` varchar(50) NOT NULL,
   `descripcion` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `estado_vuelo`
+--
+
+INSERT INTO `estado_vuelo` (`cod_vuelo`, `descripcion`) VALUES
+('1', 'Finalizado'),
+('02', 'Finalizado');
 
 -- --------------------------------------------------------
 
@@ -418,7 +426,15 @@ CREATE TABLE IF NOT EXISTS `pasajes` (
   `hora_llegada` varchar(50) NOT NULL,
   `precio` varchar(50) NOT NULL,
   PRIMARY KEY (`cod_pasaje`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `pasajes`
+--
+
+INSERT INTO `pasajes` (`cod_pasaje`, `rut_pasajero`, `cod_vuelo`, `numero_asiento`, `tipo_pasaje`, `hora_salida`, `hora_llegada`, `precio`) VALUES
+(1, '183586246', 1, '1', 'Regular', '09:00', '11:00', '141436'),
+(2, '183586250', 2, '1', 'Regular', '06:00', '05:00', '2408516');
 
 -- --------------------------------------------------------
 
@@ -542,7 +558,15 @@ CREATE TABLE IF NOT EXISTS `vuelos` (
   `estado_vuelo` varchar(50) NOT NULL,
   `cod_avion` int(50) NOT NULL,
   PRIMARY KEY (`cod_vuelo`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `vuelos`
+--
+
+INSERT INTO `vuelos` (`cod_vuelo`, `cod_comuna`, `origen`, `estado_vuelo`, `cod_avion`) VALUES
+(1, 7, '9', 'Terminado', 321654),
+(2, 15, '9', 'Terminado', 321654);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
