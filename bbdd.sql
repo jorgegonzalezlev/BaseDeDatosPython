@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 23-11-2018 a las 01:05:46
+-- Tiempo de generación: 23-11-2018 a las 14:35:48
 -- Versión del servidor: 5.7.23
 -- Versión de PHP: 7.2.10
 
@@ -45,7 +45,27 @@ CREATE TABLE IF NOT EXISTS `avion` (
 --
 
 INSERT INTO `avion` (`cod_avion`, `descripcion`, `marca`, `capacidad`, `modelo`, `capacidad_estanque`, `cod_empleado`) VALUES
-(321654, 'descr', 'yamaho', '200', 'yamaho', '200', 111);
+(321654, 'descr', 'yamaho', '200', 'yamaho', '200', 111),
+(1, 'avion comercial o avion de linea', '1', '321011', 'Bombardier CRJ200', '321011', 101),
+(2, 'avion comercial o avion de linea', '2', '246360', 'Tu-204', '246360', 131),
+(3, 'avion comercial o avion de linea', '3', '295538', 'Tu-204', '295538', 21),
+(4, 'avion comercial o avion de linea', '1', '270581', 'Tu-204', '270581', 119),
+(5, 'avion comercial o avion de linea', '2', '240311', 'Bombardier CRJ200', '240311', 23),
+(6, 'avion comercial o avion de linea', '2', '257659', 'Boeing 747', '257659', 4),
+(7, 'avion comercial o avion de linea', '1', '305078', 'Boeing 747', '305078', 73),
+(8, 'avion comercial o avion de linea', '1', '230384', 'Airbus A320', '230384', 78),
+(9, 'avion comercial o avion de linea', '3', '248070', 'Bombardier CRJ200', '248070', 61),
+(10, 'avion comercial o avion de linea', '1', '221576', 'Boeing 747', '221576', 9),
+(11, 'avion comercial o avion de linea', '1', '339479', 'Boeing 747', '339479', 50),
+(12, 'avion comercial o avion de linea', '2', '338671', 'Ilyushin Il-96', '338671', 133),
+(13, 'avion comercial o avion de linea', '2', '237837', 'Tu-204', '237837', 9),
+(14, 'avion comercial o avion de linea', '2', '342885', 'Bombardier CRJ200', '342885', 153),
+(15, 'avion comercial o avion de linea', '3', '270683', 'Airbus A320', '270683', 167),
+(16, 'avion comercial o avion de linea', '2', '269398', 'Boeing 747', '269398', 123),
+(17, 'avion comercial o avion de linea', '2', '344853', 'Airbus A320', '344853', 91),
+(18, 'avion comercial o avion de linea', '2', '333385', 'Bombardier CRJ200', '333385', 167),
+(19, 'avion comercial o avion de linea', '2', '215010', 'Airbus A320', '215010', 27),
+(20, 'avion comercial o avion de linea', '1', '218063', 'Bombardier CRJ200', '218063', 166);
 
 -- --------------------------------------------------------
 
@@ -72,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `ciudad` (
   `cod_pais` int(50) NOT NULL,
   `nombre_ciudad` varchar(50) NOT NULL,
   PRIMARY KEY (`cod_ciudad`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `ciudad`
@@ -93,7 +113,8 @@ INSERT INTO `ciudad` (`cod_ciudad`, `cod_pais`, `nombre_ciudad`) VALUES
 (12, 5, 'Uruzgan'),
 (13, 5, 'Herat'),
 (14, 6, 'Santo domingo'),
-(15, 6, 'Santiago de los caballeros');
+(15, 6, 'Santiago de los caballeros'),
+(16, 5, 'kandahar');
 
 -- --------------------------------------------------------
 
@@ -107,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `comuna` (
   `cod_provincia` int(50) NOT NULL,
   `nombre_comuna` varchar(50) NOT NULL,
   PRIMARY KEY (`cod_comuna`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `comuna`
@@ -125,7 +146,11 @@ INSERT INTO `comuna` (`cod_comuna`, `cod_provincia`, `nombre_comuna`) VALUES
 (9, 1, 'Pudahuel'),
 (10, 1, 'Puente Alto'),
 (11, 1, 'La Reina'),
-(12, 7, 'Buenos Aires');
+(12, 7, 'Buenos Aires'),
+(13, 8, 'Lima'),
+(14, 9, 'La paz'),
+(15, 10, 'kandahar'),
+(16, 11, 'Santiago de los caballeros');
 
 -- --------------------------------------------------------
 
@@ -403,13 +428,62 @@ CREATE TABLE IF NOT EXISTS `pasajes` (
 
 DROP TABLE IF EXISTS `personas`;
 CREATE TABLE IF NOT EXISTS `personas` (
-  `rut` varchar(50) NOT NULL,
+  `rut` varchar(255) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `telefono` varchar(50) NOT NULL,
   `cod_comuna` int(50) NOT NULL,
   PRIMARY KEY (`rut`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `personas`
+--
+
+INSERT INTO `personas` (`rut`, `nombre`, `mail`, `telefono`, `cod_comuna`) VALUES
+('183586246', 'Celia', 'CeliaIbAnez@gmail.com', '956321478', 12),
+('183586247', 'Grace', 'GraceCruz@gmail.com', '956321479', 8),
+('183586248', 'Caitlin', 'CaitlinLOpez@gmail.com', '956321480', 1),
+('183586249', 'Anthea', 'AntheaGutiErrez@gmail.com', '956321481', 5),
+('183586250', 'Sandy', 'SandyFernAndez@gmail.com', '956321482', 10),
+('183586251', 'Mary', 'MaryHerrero@gmail.com', '956321483', 4),
+('183586252', 'Jeremias', 'JeremiasDurAn@gmail.com', '956321484', 3),
+('183586253', 'Nadine', 'NadineMarin@gmail.com', '956321485', 7),
+('183586254', 'Celia', 'CeliaRubio@gmail.com', '956321486', 3),
+('183586255', 'Isabel', 'IsabelSantos@gmail.com', '956321487', 16),
+('183586256', 'Carena', 'CarenaArias@gmail.com', '956321488', 14),
+('183586257', 'Susie', 'SusieCastro@gmail.com', '956321489', 10),
+('183586258', 'Clara', 'ClaraOrtega@gmail.com', '956321490', 6),
+('183586259', 'Rebeca', 'RebecaVega@gmail.com', '956321491', 1),
+('183586260', 'Daciano', 'DacianoNieto@gmail.com', '956321492', 16),
+('183586261', 'Emilio', 'EmilioGallardo@gmail.com', '956321493', 1),
+('183586262', 'Magdalena', 'MagdalenaHerrera@gmail.com', '956321494', 2),
+('183586263', 'Leandro', 'LeandroMontoro@gmail.com', '956321495', 14),
+('183586264', 'Albina', 'AlbinaMarin@gmail.com', '956321496', 14),
+('183586265', 'Ireneo', 'IreneoGutiErrez@gmail.com', '956321497', 12),
+('183586266', 'Wendy', 'WendyCortEs@gmail.com', '956321498', 5),
+('183586267', 'Nicodemo', 'NicodemoPastor@gmail.com', '956321499', 2),
+('183586268', 'Abel', 'AbelDurAn@gmail.com', '956321500', 5),
+('183586269', 'Francisca', 'FranciscaJimEnez@gmail.com', '956321501', 11),
+('183586270', 'Ayleen', 'AyleenNieto@gmail.com', '956321502', 9),
+('183586271', 'Alba', 'AlbaFlores@gmail.com', '956321503', 11),
+('183586272', 'Dan', 'DanBlesa@gmail.com', '956321504', 7),
+('183586273', 'Britanny', 'BritannyJimEnez@gmail.com', '956321505', 6),
+('183586274', 'Maximiliano', 'MaximilianoRey@gmail.com', '956321506', 13),
+('183586275', 'Damaso', 'DamasoBlesa@gmail.com', '956321507', 5),
+('183586276', 'Maria', 'MariaAlonso@gmail.com', '956321508', 5),
+('183586277', 'Norberto', 'NorbertoMArquez@gmail.com', '956321509', 14),
+('183586278', 'Casimiro', 'CasimiroLozano@gmail.com', '956321510', 2),
+('183586279', 'Bridget', 'BridgetSantos@gmail.com', '956321511', 7),
+('183586280', 'Mathis', 'MathisBravo@gmail.com', '956321512', 1),
+('183586281', 'Shirley', 'ShirleyMoya@gmail.com', '956321513', 7),
+('183586282', 'Maureen', 'MaureenMArquez@gmail.com', '956321514', 3),
+('183586283', 'Natasha', 'NatashaRamirez@gmail.com', '956321515', 8),
+('183586284', 'Irene', 'IreneCastillo@gmail.com', '956321516', 1),
+('183586285', 'Manuela', 'ManuelaMontoro@gmail.com', '956321517', 12),
+('183586286', 'Natalina', 'NatalinaSantiago@gmail.com', '956321518', 5),
+('183586287', 'Baldomero', 'BaldomeroOrtega@gmail.com', '956321519', 8),
+('183586288', 'Lysange', 'LysangeVega@gmail.com', '956321520', 3);
 
 -- --------------------------------------------------------
 
@@ -423,7 +497,7 @@ CREATE TABLE IF NOT EXISTS `provincia` (
   `cod_ciudad` int(50) NOT NULL,
   `nombre_provincia` varchar(50) NOT NULL,
   PRIMARY KEY (`cod_provincia`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `provincia`
@@ -436,7 +510,11 @@ INSERT INTO `provincia` (`cod_provincia`, `cod_ciudad`, `nombre_provincia`) VALU
 (4, 1, 'maipo'),
 (5, 1, 'Melipilla'),
 (6, 1, 'Talagante'),
-(7, 2, 'Buenos Aires');
+(7, 2, 'Buenos Aires'),
+(8, 8, 'Lima'),
+(9, 10, 'La paz'),
+(10, 17, 'kandahar'),
+(11, 6, 'Santiago de los caballeros');
 
 -- --------------------------------------------------------
 
