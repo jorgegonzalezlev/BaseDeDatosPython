@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 23-11-2018 a las 00:59:15
+-- Tiempo de generación: 23-11-2018 a las 01:05:46
 -- Versión del servidor: 5.7.23
 -- Versión de PHP: 7.2.10
 
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `comuna` (
   `cod_provincia` int(50) NOT NULL,
   `nombre_comuna` varchar(50) NOT NULL,
   PRIMARY KEY (`cod_comuna`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `comuna`
@@ -124,7 +124,8 @@ INSERT INTO `comuna` (`cod_comuna`, `cod_provincia`, `nombre_comuna`) VALUES
 (8, 1, 'Quilicura'),
 (9, 1, 'Pudahuel'),
 (10, 1, 'Puente Alto'),
-(11, 1, 'La Reina');
+(11, 1, 'La Reina'),
+(12, 7, 'Buenos Aires');
 
 -- --------------------------------------------------------
 
@@ -420,21 +421,22 @@ DROP TABLE IF EXISTS `provincia`;
 CREATE TABLE IF NOT EXISTS `provincia` (
   `cod_provincia` int(50) NOT NULL AUTO_INCREMENT,
   `cod_ciudad` int(50) NOT NULL,
-  `nombre_comuna` varchar(50) NOT NULL,
+  `nombre_provincia` varchar(50) NOT NULL,
   PRIMARY KEY (`cod_provincia`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `provincia`
 --
 
-INSERT INTO `provincia` (`cod_provincia`, `cod_ciudad`, `nombre_comuna`) VALUES
+INSERT INTO `provincia` (`cod_provincia`, `cod_ciudad`, `nombre_provincia`) VALUES
 (1, 1, 'Provincia de Santiago'),
 (2, 1, 'Chacabuco'),
 (3, 1, 'cordillera'),
 (4, 1, 'maipo'),
 (5, 1, 'Melipilla'),
-(6, 1, 'Talagante');
+(6, 1, 'Talagante'),
+(7, 2, 'Buenos Aires');
 
 -- --------------------------------------------------------
 
