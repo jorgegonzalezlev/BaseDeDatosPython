@@ -40,11 +40,11 @@ def ConsultaObtenerUno(Tabla,id):
     else:
         return data
 #==============  Insertar Uno ================
-def Consultainsertar(Tabla,datos):
+def ConsultaInsertarUno(Tabla,datos):
     a="'"
     l=len(datos)
     for x in datos:
-        a+="'"+x+"',"
+        a+="'"+str(x)+"',"
     b=a[ 1:len(a) - 1]
     print(b)
     query=query = "INSERT INTO "+Tabla+" VALUES ("+b+")"
@@ -58,8 +58,9 @@ import random
 def datosfeik(n):
     emp=[]
     for x in range(0,n):
-        rut_emp=183586246+n
-        profesion=["Piloto Técnico", "administrativo", "Azafata", "Auxiliar de Tierra", "Despachador de Vuelo"]
+        
+        rut_emp=183586246+x
+        profesion=["Piloto Tecnico", "administrativo", "Azafata", "Auxiliar de Tierra", "Despachador de Vuelo"]
         nombh=[]
         archivo = open("nombresh.txt", "r")
         for linea in archivo.readlines():
@@ -75,7 +76,7 @@ def datosfeik(n):
         for linea in archivo.readlines():
             a=str(linea).replace("\n", "")
             ape.append(a)
-        cod=1+n
+        cod=1+x
         prof=random.choice(profesion)
         apellido=random.choice(ape)
         e=[]
@@ -87,9 +88,12 @@ def datosfeik(n):
             nombre=random.choice(nombh)
             e=[rut_emp,prof,nombre,apellido,cod]
             emp.append(e)
-    print(emp)
+        
+    for i in emp:
+        ConsultaInsertarUno("empleados",i)
+    
  
-datosfeik(20)
+datosfeik(200)
 
 
 
