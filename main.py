@@ -9,13 +9,13 @@ from funciones import *
 
 while True:
     print("\n========| MAIN |========\n")
-    opcion=raw_input(" CONSULTA 1 (1)\n SALIR      (2)\n\n Opcion-> : ")
+    opcion=raw_input("1) Empleados \n2)avion \n3)cliente \n4)aeropuerto \n5)Destinos \n6)reserva \n7)vuelo \n8)pasajes")
     
     if(opcion == '1'):
+        print("-"*15)
+        opcionempleado=input("\nEmpleados: \n 1) insertar \n 2)mostrar \n 3)borrar \n 4)buscar")
         Consulta1()
-    if(opcion != '1' and opcion!= '2'):
-        print("\n Opcion erronea\n")
-    if(opcion == '2'):
+    else if(opcion == '2'):
         print("\n   LOH VIMOH\n")
         print("        _\ _~-\___ ")
         print("=  = ==(____AA____D")
@@ -26,5 +26,9 @@ while True:
         print("                   =  ===(_________D")
         
         break
+    else:
+        print("\n Opcion erronea\n")
     
     print("\n=========================\n")
+    
+##menu: 
